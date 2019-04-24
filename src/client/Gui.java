@@ -1,30 +1,60 @@
 package client;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 import java.awt.*;
 
 public class Gui extends JFrame {
-
-	JPanel panel1 = new JPanel();
-	JPanel panel2 = new JPanel();
-	JButton b1 = new JButton("b1");
-	JButton b2 = new JButton("b2");
+	Dbtable table = new Dbtable();
+	Dbdisplay display = new Dbdisplay();
+	JPanel side = new JPanel();
+	JPanel side2 = new JPanel();
+	//JPanel top = new JPanel();
+	JPanel top = display;
+	JPanel bottom = table;
+	GroupLayout layout = new GroupLayout(getContentPane());
 	
 	Gui(){
+		layout.setHorizontalGroup(
+    			layout.createSequentialGroup()
+    			.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(side)
+						.addComponent(side2))
+    				.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+    						.addComponent(top)
+    						.addComponent(bottom)));
+    	
+    	layout.setVerticalGroup(
+    			layout.createSequentialGroup()
+    				.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+    						.addComponent(side)
+    						.addComponent(top))
+    				.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+    						.addComponent(side2)
+    						.addComponent(bottom)));
 		
+		side.setPreferredSize(new Dimension(250,800));
+		side2.setPreferredSize(new Dimension(250,100));
+		side.setBackground(Color.GREEN);
+		side2.setBackground(Color.GREEN);
+		top.setPreferredSize(new Dimension(800,450));
+		top.setBackground(Color.red);
+		bottom.setBackground(Color.blue);
+		setLayout(layout);
 		setSize(1600,900);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
-		
-		add(panel1, BorderLayout.PAGE_START);
-		add(panel2, BorderLayout.CENTER);
-		panel1.add(b1);
-		panel2.add(b2);
-		panel1.setVisible(true);
-		panel2.setVisible(true);
-		b1.setVisible(true);
-		b2.setVisible(true);
-		
+		table.        list.addListSelectionListener(new ListSelectionListener() {
+			@Override
+			public void valueChanged(ListSelectionEvent arg0) {
+				System.out.println(table.list.getSelectedIndex());
+				table.r = table.listModel.getElementAt(table.list.getSelectedIndex());
+				System.out.println(table.r);
+				display.text.setText(table.r);
+			}
+		});
+		display.text.setText(table.r);
 	}
-	
 }
