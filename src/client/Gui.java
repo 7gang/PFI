@@ -5,11 +5,13 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Gui extends JFrame {
 	Dbtable table = new Dbtable();
 	Dbdisplay display = new Dbdisplay();
-	JPanel side = new JPanel();
+	JPanel side = new MihaiPanel();
 	JPanel side2 = new JPanel();
 	//JPanel top = new JPanel();
 	JPanel top = display;
@@ -56,5 +58,39 @@ public class Gui extends JFrame {
 			}
 		});
 		display.text.setText(table.r);
+		
+		MihaiPanel.b1.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed (ActionEvent e) 
+			{
+				System.out.print("Peter has");
+				table.addItem("Something which");
+			}
+		});
+		
+		MihaiPanel.b2.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed (ActionEvent e) 
+			{
+				System.out.print(" a");
+			}
+		});
+		
+		MihaiPanel.b3.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed (ActionEvent e) 
+			{
+				System.out.print(" small Penis");
+				table.removeItem();
+			}
+		});
+		
+		MihaiPanel.b4.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed (ActionEvent e) 
+			{
+				System.out.print("!!!!!!");
+			}
+		});
 	}
 }

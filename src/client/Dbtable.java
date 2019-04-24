@@ -46,7 +46,7 @@ public class Dbtable extends JPanel{
 	}
 	
 	void removeItem() {
-		//listModel.removeElementAt(selection);
+		listModel.removeElementAt(selection);
 		/*String[] response = server.deleteQuote(selection);
 		if (response[1] != "1") // maybe tell the user?
 		listModel = new DefaultListModel<>(server.getQuotes());*/

@@ -4,14 +4,14 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class MihaiPanel extends JFrame {
+public class MihaiPanel extends JPanel {
 	
 	JPanel panel = new JPanel();
-	JButton b1 = new JButton("Add");
-	JButton b2 = new JButton("Edit");
-	JButton b3 = new JButton("Remove");
-	JButton b4 = new JButton("Refresh");
-	int bDim = 50;
+	static JButton b1 = new JButton("Add");
+	static JButton b2 = new JButton("Edit");
+	static JButton b3 = new JButton("Remove");
+	static JButton b4 = new JButton("Refresh");
+	int bDim = 80;
 	int bDist = 15;
 	
 		MihaiPanel(){
@@ -33,8 +33,7 @@ public class MihaiPanel extends JFrame {
 		       // handle exception
 		    }
 
-			setSize(300,400);
-			setDefaultCloseOperation(EXIT_ON_CLOSE);
+			setSize(500,800);
 			setVisible(true);
 			add(panel);
 			panel.setOpaque(true);
@@ -69,37 +68,6 @@ public class MihaiPanel extends JFrame {
 			b3.setVisible(true);
 			b4.setVisible(true);
 			
-			b1.addActionListener(new ActionListener() 
-			{
-				public void actionPerformed (ActionEvent e) 
-				{
-					System.out.print("Peter has");
-				}
-			});
-			
-			b2.addActionListener(new ActionListener() 
-			{
-				public void actionPerformed (ActionEvent e) 
-				{
-					System.out.print(" a");
-				}
-			});
-			
-			b3.addActionListener(new ActionListener() 
-			{
-				public void actionPerformed (ActionEvent e) 
-				{
-					System.out.print(" small Penis");
-				}
-			});
-			
-			b4.addActionListener(new ActionListener() 
-			{
-				public void actionPerformed (ActionEvent e) 
-				{
-					System.out.print("!!!!!!");
-				}
-			});
 			
 		}
 }
