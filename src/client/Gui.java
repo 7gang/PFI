@@ -19,6 +19,9 @@ public class Gui extends JFrame {
 	GroupLayout layout = new GroupLayout(getContentPane());
 	
 	Gui(){
+		layout.setAutoCreateGaps(true);
+		layout.setAutoCreateContainerGaps(true);
+		
 		layout.setHorizontalGroup(
     			layout.createSequentialGroup()
     			.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -30,7 +33,7 @@ public class Gui extends JFrame {
     	
     	layout.setVerticalGroup(
     			layout.createSequentialGroup()
-    				.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+    				.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
     						.addComponent(side)
     						.addComponent(top))
     				.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -38,21 +41,20 @@ public class Gui extends JFrame {
     						.addComponent(bottom)));
 		
 		
-		side2.setPreferredSize(new Dimension(200,400));
+		side2.setPreferredSize(new Dimension(200,390));
 		side2.setMaximumSize(getPreferredSize());	
 		side2.setMaximumSize(getPreferredSize());
-		side.setBackground(Color.GREEN);
-		side2.setBackground(Color.GREEN);
+		side2.setBorder(BorderFactory.createLineBorder(Color.black));
 		
-
-		top.setBackground(Color.red);
-		
-
-		bottom.setBackground(Color.blue);
+		side.setBackground(Color.WHITE);
+		side2.setBackground(Color.WHITE);
+		top.setBackground(Color.WHITE);
+		bottom.setBackground(Color.WHITE);
 		
 		setLayout(layout);
 		setSize(1600,900);
 		setResizable(false);
+		setBackground(Color.GRAY);
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);

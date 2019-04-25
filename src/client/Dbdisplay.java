@@ -11,7 +11,7 @@ public class Dbdisplay extends JPanel{
 
 	
 	Dbdisplay(){
-		setPreferredSize(new Dimension(1400,500));
+		setPreferredSize(new Dimension(1360,450));
 		setMaximumSize(getPreferredSize());
 		setMinimumSize(getPreferredSize());
 		setLayout(layout);
@@ -19,7 +19,7 @@ public class Dbdisplay extends JPanel{
 		text.setHorizontalAlignment(text.CENTER);
 		text.setFont(font);
 		add(text,BorderLayout.CENTER);
-		setMaximumSize(getPreferredSize());
+		setBorder(BorderFactory.createLineBorder(Color.black));
 	}
 	
 	public void setQuote(String input) {

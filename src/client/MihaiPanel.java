@@ -38,12 +38,13 @@ public class MihaiPanel extends JPanel {
 			b3.setFont(font);
 			b4.setFont(font);
 
-			setPreferredSize(new Dimension(200,500));
+			setPreferredSize(new Dimension(200,450));
 			setMaximumSize(getPreferredSize());
 			setMinimumSize(getPreferredSize());
 			setVisible(true);
 			setOpaque(true);
 			setBackground(Color.WHITE);
+			setBorder(BorderFactory.createLineBorder(Color.black));
 			setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 			
 			add(Box.createVerticalGlue());

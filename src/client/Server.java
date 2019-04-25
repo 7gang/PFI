@@ -79,7 +79,7 @@ class Server {
     private static boolean connect() {
 
         try {
-            socket = new Socket("localhost", 65432);
+            socket = new Socket("130.225.247.85", 65432);
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             return true;
