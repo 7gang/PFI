@@ -72,8 +72,7 @@ public class Gui extends JFrame {
 		{
 			public void actionPerformed (ActionEvent e) 
 			{
-				System.out.print("Peter has");
-				table.addItem("Something which");
+				table.addItem("a quote");
 			}
 		});
 		
@@ -81,7 +80,7 @@ public class Gui extends JFrame {
 		{
 			public void actionPerformed (ActionEvent e) 
 			{
-				System.out.print(" a");
+				//table.addItem("a quote");
 			}
 		});
 		
@@ -89,8 +88,7 @@ public class Gui extends JFrame {
 		{
 			public void actionPerformed (ActionEvent e) 
 			{
-				System.out.print(" small Penis");
-				table.removeItem();
+				//System.out.print(" small Penis");
 			}
 		});
 		
@@ -98,7 +96,7 @@ public class Gui extends JFrame {
 		{
 			public void actionPerformed (ActionEvent e) 
 			{
-				System.out.print("!!!!!!");
+				table.updateItems();
 			}
 		});
 	}

@@ -20,7 +20,6 @@ public class Dbtable extends JPanel{
 		setPreferredSize(new Dimension(1400,400));
 		setMaximumSize(getPreferredSize());
 		setMinimumSize(getPreferredSize());
-		addItem(s);
 		add(listScroller);
 		list.setVisible(true);
 		list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
@@ -29,36 +28,37 @@ public class Dbtable extends JPanel{
 		listScroller.setPreferredSize(new Dimension(1350, 345));
 		list.setFont(font);
 	}
-	
-	void addItem(String[] input) {
-		/*String[] response = server.addQuote(selection);
-		if (response[1] != "1") // maybe tell the user?
-		listModel = new DefaultListModel<>(server.getQuotes());*/
-		for(String p : input) {
-			listModel.addElement(p);
+
+	private void reformList() {
+		listModel.clear();
+		for (String quote : Server.getQuotes()) {
+			listModel.addElement(quote);
 		}
 	}
 	
 	void addItem(String input) {	
-			listModel.addElement(input);
+		Boolean success = Server.addQuote(input);
+		if (!success) 
+			return; // something
+		reformList();
 	}
 	
-	void editItem(String input) {
-		//listModel.setElementAt(input, selection);
-		/*String[] response = server.editQuote(selection);
-		if (response[1] != "1") // maybe tell the user?
-		listModel = new DefaultListModel<>(server.getQuotes());*/
+	void editItem(String targetQuote, String newQuote) {
+		Boolean success = Server.editQuote(targetQuote, newQuote);
+		if (!success)
+			return; // something
+		reformList();
 	}
 	
-	void removeItem() {
-		listModel.removeElementAt(selection);
-		/*String[] response = server.deleteQuote(selection);
-		if (response[1] != "1") // maybe tell the user?
-		listModel = new DefaultListModel<>(server.getQuotes());*/
+	void removeItem(String quote) {
+		Boolean success = Server.deleteQuote(quote);
+		if (!success)
+			return; // something
+		reformList();
 	}
 	
 	void updateItems() {
-		//listModel = new DefaultListModel<>(server.getQuotes());
+		reformList();
 	}
 	
 }
