@@ -35,11 +35,11 @@ public class Gui extends JFrame {
     						.addComponent(side2)
     						.addComponent(bottom)));
 		
-		side.setPreferredSize(new Dimension(250,800));
-		side2.setPreferredSize(new Dimension(250,100));
+		side.setPreferredSize(new Dimension(640,500));
+		side2.setPreferredSize(new Dimension(640,400));
 		side.setBackground(Color.GREEN);
 		side2.setBackground(Color.GREEN);
-		top.setPreferredSize(new Dimension(800,450));
+		//top.setPreferredSize(new Dimension(800,450));
 		top.setBackground(Color.red);
 		bottom.setBackground(Color.blue);
 		setLayout(layout);
@@ -53,6 +53,7 @@ public class Gui extends JFrame {
 				table.r = table.listModel.getElementAt(table.list.getSelectedIndex());
 				System.out.println(table.r);
 				display.text.setText(table.r);
+				table.selection = table.list.getSelectedIndex();
 			}
 		});
 		display.text.setText(table.r);

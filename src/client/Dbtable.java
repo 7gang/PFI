@@ -11,18 +11,21 @@ public class Dbtable extends JPanel{
 	String[] s = {"s","b","w","s","b","w","s","b","w","s","b","w","s","b","w","s",
 			"b","w","s","b","w","s","b","w","s","b","w","s","b","w","s","b","w","s","b","w"};
 	JList<String> list = new JList<>(listModel);
-	JScrollPane listScroller = new JScrollPane(list);
+	JScrollPane listScroller = new JScrollPane(list,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 	int selection;
 	public String r = "";
+	Font font = new Font("Helvetica", Font.PLAIN,20);
+
 	Dbtable(){
 		addItem(s);
 		add(listScroller);
 		list.setVisible(true);
-		setPreferredSize(new Dimension(800,450));
+		setPreferredSize(new Dimension(960,450));
 		list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		list.setLayoutOrientation(JList.VERTICAL);
 		list.setVisibleRowCount(-1);
-		listScroller.setPreferredSize(new Dimension(800, 250));
+		listScroller.setPreferredSize(new Dimension(950, 390));
+		list.setFont(font);
 	}
 	
 	void addItem(String[] input) {
