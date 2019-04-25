@@ -21,7 +21,7 @@ class Server {
     private static long timer = 0;
 
     public static List<String> getQuotes() {
-        if (System.currentTimeMillis() - timer < 2000)
+        if (System.currentTimeMillis() - timer < 2000) // effectively cache data for two seconds
             return data;
         request(new String[] { "get" });
         return data;
@@ -41,15 +41,17 @@ class Server {
 
     private static Boolean request(String...parameters) {
         
-        if (!connect()) return false; // error
+        if (!connect()) return false; // no connection could be established
         
         // send request
         for (String p : parameters) 
             out.println(p);
         try {
             socket.shutdownOutput();
+            // request must have been successfully sent
             timer = System.currentTimeMillis();
-            return saveResponse();
+            System.out.println("A server request accured with parameters: " + parameters);
+            return saveResponse(); // if the response is saved, the request was successful
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -65,21 +67,23 @@ class Server {
         try {
             while ((inputLine = in.readLine()) != null)
                 response.add(inputLine);
+            socket.close();
 
         } catch (IOException e) {
             e.printStackTrace();
             return false;
         }
 
-        data = response.subList(response.indexOf("data") + 1, response.size());
-        return response.get(1).equals("1") ? true : false;
+        Boolean success = response.get(1).equals("1"); // whether or not the request was successfully processed by the remote server
+        if (success) data = response.subList(response.indexOf("data") + 1, response.size());
+        return success;
 
     }
 
     private static boolean connect() {
 
         try {
-            socket = new Socket("130.225.247.85", 65432);
+            socket = new Socket("localhost", 65432);
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             return true;
