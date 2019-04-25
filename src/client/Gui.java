@@ -37,18 +37,26 @@ public class Gui extends JFrame {
     						.addComponent(side2)
     						.addComponent(bottom)));
 		
-		side.setPreferredSize(new Dimension(640,500));
-		side2.setPreferredSize(new Dimension(640,400));
+		
+		side2.setPreferredSize(new Dimension(200,400));
+		side2.setMaximumSize(getPreferredSize());	
+		side2.setMaximumSize(getPreferredSize());
 		side.setBackground(Color.GREEN);
 		side2.setBackground(Color.GREEN);
-		//top.setPreferredSize(new Dimension(800,450));
+		
+
 		top.setBackground(Color.red);
+		
+
 		bottom.setBackground(Color.blue);
+		
 		setLayout(layout);
 		setSize(1600,900);
+		setResizable(false);
+		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
-		table.        list.addListSelectionListener(new ListSelectionListener() {
+		table.list.addListSelectionListener(new ListSelectionListener() {
 			@Override
 			public void valueChanged(ListSelectionEvent arg0) {
 				System.out.println(table.list.getSelectedIndex());

@@ -1,18 +1,18 @@
 package client;
-import java.awt.Dimension;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
 public class MihaiPanel extends JPanel {
 	
-	JPanel panel = new JPanel();
 	static JButton b1 = new JButton("Add");
 	static JButton b2 = new JButton("Edit");
 	static JButton b3 = new JButton("Remove");
 	static JButton b4 = new JButton("Refresh");
 	int bDim = 80;
 	int bDist = 15;
+	Font font = new Font("Helvetica", Font.PLAIN,20);
+
 	
 		MihaiPanel(){
 			try {
@@ -32,36 +32,47 @@ public class MihaiPanel extends JPanel {
 		    catch (IllegalAccessException e) {
 		       // handle exception
 		    }
+			
+			b1.setFont(font);
+			b2.setFont(font);
+			b3.setFont(font);
+			b4.setFont(font);
 
-			setSize(500,800);
+			setPreferredSize(new Dimension(200,500));
+			setMaximumSize(getPreferredSize());
+			setMinimumSize(getPreferredSize());
 			setVisible(true);
-			add(panel);
-			panel.setOpaque(true);
-			panel.setBackground(Color.WHITE);
-			panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+			setOpaque(true);
+			setBackground(Color.WHITE);
+			setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 			
-			panel.add(Box.createVerticalGlue());
-			panel.add(b1);
-			panel.add(Box.createRigidArea(new Dimension(0,bDist)));
-			panel.add(b2);
-			panel.add(Box.createRigidArea(new Dimension(0,bDist)));
-			panel.add(b3);
-			panel.add(Box.createRigidArea(new Dimension(0,bDist)));
-			panel.add(b4);
+			add(Box.createVerticalGlue());
+			add(b1);
+			add(Box.createRigidArea(new Dimension(1,bDist)));
+			add(b2);
+			add(Box.createRigidArea(new Dimension(1,bDist)));
+			add(b3);
+			add(Box.createRigidArea(new Dimension(1,bDist)));
+			add(b4);
 			
-			b1.setPreferredSize(new Dimension(bDim, bDim));
-			b2.setPreferredSize(new Dimension(bDim, bDim));
-			b3.setPreferredSize(new Dimension(bDim, bDim));
-			b4.setPreferredSize(new Dimension(bDim, bDim));
+			b1.setPreferredSize(new Dimension(150, 60));
+			b2.setPreferredSize(new Dimension(150, 60));
+			b3.setPreferredSize(new Dimension(150, 60));
+			b4.setPreferredSize(new Dimension(150, 60));
 			
-			panel.setVisible(true);
+			b1.setMinimumSize(getPreferredSize());
+			b2.setMinimumSize(getPreferredSize());
+			b3.setMinimumSize(getPreferredSize());
+			b4.setMinimumSize(getPreferredSize());
+			
+			setVisible(true);
 			
 			b1.setAlignmentX(CENTER_ALIGNMENT);
 			b2.setAlignmentX(CENTER_ALIGNMENT);
 			b3.setAlignmentX(CENTER_ALIGNMENT);
 			b4.setAlignmentX(CENTER_ALIGNMENT);
 			
-			panel.add(Box.createVerticalGlue());
+			add(Box.createVerticalGlue());
 			
 			b1.setVisible(true);
 			b2.setVisible(true);

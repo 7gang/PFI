@@ -17,14 +17,16 @@ public class Dbtable extends JPanel{
 	Font font = new Font("Helvetica", Font.PLAIN,20);
 
 	Dbtable(){
+		setPreferredSize(new Dimension(1400,400));
+		setMaximumSize(getPreferredSize());
+		setMinimumSize(getPreferredSize());
 		addItem(s);
 		add(listScroller);
 		list.setVisible(true);
-		setPreferredSize(new Dimension(960,450));
 		list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		list.setLayoutOrientation(JList.VERTICAL);
 		list.setVisibleRowCount(-1);
-		listScroller.setPreferredSize(new Dimension(950, 390));
+		listScroller.setPreferredSize(new Dimension(1350, 345));
 		list.setFont(font);
 	}
 	

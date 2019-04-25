@@ -11,12 +11,14 @@ public class Dbdisplay extends JPanel{
 
 	
 	Dbdisplay(){
+		setPreferredSize(new Dimension(1400,500));
+		setMaximumSize(getPreferredSize());
+		setMinimumSize(getPreferredSize());
 		setLayout(layout);
 		text.setHorizontalTextPosition(text.CENTER);
 		text.setHorizontalAlignment(text.CENTER);
 		text.setFont(font);
 		add(text,BorderLayout.CENTER);
-		setPreferredSize(new Dimension(960,450));
 		setMaximumSize(getPreferredSize());
 	}
 	
