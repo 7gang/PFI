@@ -21,9 +21,8 @@ class Server {
     private static long timer = 0;
 
     public static List<String> getQuotes() {
-        if (System.currentTimeMillis() - timer < 2000) // effectively cache data for two seconds
-            return data;
-        request(new String[] { "get" });
+        if (System.currentTimeMillis() - timer > 2000) // effectively cache data for two seconds
+            request(new String[] { "get" });
         return data;
     }
 
@@ -55,6 +54,7 @@ class Server {
 
         } catch (IOException e) {
             e.printStackTrace();
+            closeSocket();
             return false;
         }
 
@@ -73,6 +73,7 @@ class Server {
             e.printStackTrace();
             return false;
         }
+        closeSocket();
 
         Boolean success = response.get(1).equals("1"); // whether or not the request was successfully processed by the remote server
         if (success) data = response.subList(response.indexOf("data") + 1, response.size());
@@ -86,13 +87,23 @@ class Server {
             socket = new Socket("localhost", 65432);
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            return true;
+            return socket.isConnected();
 
         } catch (IOException e) {
             e.printStackTrace();
+            closeSocket();
             return false;
         }
 
+    }
+
+    private static void closeSocket() {
+        try {
+            socket.close();
+        } catch (IOException e) {
+            System.out.println("Socket could not be gracefully closed!");
+            e.printStackTrace();
+        }
     }
 
 }
