@@ -3,7 +3,7 @@ Following is a auto-generated markdown-version of out [project report](https://w
 
 # A ​ database server ​ with a desktop client ​ in Java
 
-By Peter Guld Leth, Steffan Christensen & Mihai-Alexandru Ciungu.
+© Peter Guld Leth, Steffan Christensen & Mihai-Alexandru Ciungu.
 
 
 ## O​verview
