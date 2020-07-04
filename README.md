@@ -1,5 +1,5 @@
 [Client repo](https://github.com/7gang/Client), [Server repo](https://github.com/7gang/Server).
-Following is a auto-generated markdown-version of out [project report](https://www.dropbox.com/s/znxesxyinctufn7/PFI%20Mini%20project%20report.pdf?dl=0).
+Following is an auto-generated markdown-version of out [project report](https://www.dropbox.com/s/znxesxyinctufn7/PFI%20Mini%20project%20report.pdf?dl=0).
 
 # A ​ database server ​ with a desktop client ​ in Java
 
